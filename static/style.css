@@ -1,0 +1,51 @@
+/* Estilos CSS Personalizados */
+body {
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    padding: 15px;
+}
+
+h1 {
+    color: #333;
+}
+
+/* Estilos para inputs y botones */
+input[type="text"], input[type="password"] {
+    margin-bottom: 20px;
+}
+
+button[type="submit"] {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+/* Estilos CSS Personalizados */
+body {
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    padding: 15px;
+    max-width: 600px;
+    margin: auto;
+}
+
+h1 {
+    color: #333;
+}
+
+.list-group-item {
+    font-size: 1.2rem; /* Tamaño de fuente para los elementos de la lista */
+    text-align: center;
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impresión de Etiquetas</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <a href="/dashboard" class="btn btn-secondary mb-3">Volver al Menú</a>
+        <h1>Impresión de Etiquetas</h1>
+        <form id="formEtiqueta" method="post">
+            <div class="form-group">
+              <label for="numero_envio">Número de Envío:</label>
+             <input type="text" id="numero_envio" name="numero_envio" class="form-control" placeholder="Introduce el número de envío aquí" required>
+            </div>
+            <button type="submit" class="button">Imprimir Etiqueta</button>
+        </form>
+
+    </div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#formEtiqueta').submit(function(event) {
+            event.preventDefault();
+            $.ajax({
+                url: '/imprimir_etiqueta',
+                type: 'POST',
+                data: $(this).serialize(),
+                success: function(data) {
+                    window.open(data.pdf_url, '_blank');  // Asegúrate de que data.pdf_url es una URL accesible
+                },
+                error: function(response) {
+                    alert(response.responseJSON.error);  // Mostrar mensaje de error
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
